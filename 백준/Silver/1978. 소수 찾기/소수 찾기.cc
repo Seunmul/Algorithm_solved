@@ -1,6 +1,5 @@
-#include <bits/stdc++.h>
-
-using namespace std;
+#include <stdio.h>
+#include <math.h>
 
 bool cal(int n){
     if(n==1 or (n%2==0 and n!=2)) return false;
@@ -12,10 +11,10 @@ bool cal(int n){
 
 int main(){
     int N,cnt=0;
-    cin >> N;
-    vector<int> v(N);
-    for(int i=0;i<N;i++) cin>>v.at(i);
+    scanf("%d",&N);
+    int v[N];
+    for(int i=0;i<N;i++) scanf("%d",v+i);
     for(int i:v) if(cal(i)) cnt++;
-    cout << cnt;
+    printf("%d",cnt);
     return 0;
 }
