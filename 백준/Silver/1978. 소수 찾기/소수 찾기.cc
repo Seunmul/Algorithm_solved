@@ -6,9 +6,10 @@ bool cal(int n){
     return true;
 }
 int main(){
-    int N,cnt=0; scanf("%d",&N); int v[N];
-    for(int i=0;i<N;i++) scanf("%d",v+i);
-    for(int i:v) if(cal(i)) cnt++; 
+    int N,cnt=0,tmp; scanf("%d",&N);
+    for(int i=0;i<N;i++) {
+        scanf("%d",&tmp); if(cal(tmp)) cnt++;
+    } 
     printf("%d",cnt);
     return 0;
 }
