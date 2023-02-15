@@ -12,13 +12,10 @@ bool cal(int n){
 
 int main(){
     int N,cnt=0;
-    int arr[100]={0,};
     cin >> N;
-    for(int i=0;i<N;i++)
-        cin>>arr[i];
-    for(int i=0;i<N;i++)
-        if(cal(arr[i]))
-            cnt++;
+    vector<int> v(N);
+    for(int i=0;i<N;i++) cin>>v.at(i);
+    for(int i:v) if(cal(i)) cnt++;
     cout << cnt;
     return 0;
 }
