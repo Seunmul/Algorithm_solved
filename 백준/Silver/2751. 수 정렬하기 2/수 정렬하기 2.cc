@@ -3,9 +3,11 @@ using namespace std;
 int T;
 int main(){
     cin >> T;
-    vector<int> v(T);
-    for(int i=0;i<T;i++) cin >> v.at(i);
-    sort(v.begin(),v.end());
-    for(int i:v) cout << i << "\n";
+    cin.sync_with_stdio(false);
+    cin.tie(NULL);
+    int arr[T];
+    for(int i=0;i<T;i++) cin >> arr[i];
+    sort(arr,arr+T);
+    for(int i:arr) cout << i << "\n";
     return 0;
 }
