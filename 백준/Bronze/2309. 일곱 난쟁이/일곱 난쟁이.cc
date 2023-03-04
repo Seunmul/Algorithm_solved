@@ -1,28 +1,35 @@
 #include <bits/stdc++.h>
 using namespace std;
+int arr[9], sum;
+vector<int> v;
+pair<int, int> ret;
+void sol()
+{
+    for (int i = 0; i < 9; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            if (sum - arr[i] - arr[j] == 100)
+            {
+                ret = make_pair(i, j);
+                return;
+            }
+        }
+    }
+}
 int main()
 {
-    int arr[9] = {0,};
-    for (int i = 0; i < 9; i++) cin >> arr[i];
-    sort(arr, arr + 9);
+    for (int i = 0; i < 9; i++){
+        cin >> arr[i];
+        sum += arr[i];
+    }
+    sol();
     for (int i = 0; i < 9; i++)
-        for (int j = i + 1; j < 9; j++)
-            for (int k = j + 1; k < 9; k++)
-                for (int m = k + 1; m < 9; m++)
-                    for (int n = m + 1; n < 9; n++)
-                        for (int l = n + 1; l < 9; l++)
-                            for (int p = l + 1; p < 9; p++)
-                                if (arr[i] + arr[j] + arr[k] + arr[m] + arr[n] + arr[l] + arr[p] == 100)
-                                {
-                                    cout << arr[i] << "\n"
-                                         << arr[j] << "\n"
-                                         << arr[k] << "\n"
-                                         << arr[m] << "\n"
-                                         << arr[n] << "\n"
-                                         << arr[l] << "\n"
-                                         << arr[p] << "\n";
-                                    return 0;
-                                }
-
+    {
+        if (ret.first == i || ret.second == i) continue;
+        v.push_back(arr[i]);
+    }
+    sort(v.begin(), v.end());
+    for (int i : v) cout << i << "\n";
     return 0;
 }
