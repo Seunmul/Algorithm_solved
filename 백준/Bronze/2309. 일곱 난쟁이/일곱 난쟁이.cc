@@ -1,35 +1,15 @@
 #include <bits/stdc++.h>
 using namespace std;
-int arr[9], sum;
-vector<int> v;
-pair<int, int> ret;
-void sol()
-{
-    for (int i = 0; i < 9; i++)
-    {
-        for (int j = 0; j < i; j++)
-        {
-            if (sum - arr[i] - arr[j] == 100)
-            {
-                ret = make_pair(i, j);
-                return;
-            }
-        }
-    }
-}
 int main()
 {
-    for (int i = 0; i < 9; i++){
-        cin >> arr[i];
-        sum += arr[i];
-    }
-    sol();
-    for (int i = 0; i < 9; i++)
-    {
-        if (ret.first == i || ret.second == i) continue;
-        v.push_back(arr[i]);
-    }
-    sort(v.begin(), v.end());
-    for (int i : v) cout << i << "\n";
+    int arr[9] = {0,};
+    for (int i = 0; i < 9; i++) cin >> arr[i];
+    sort(arr, arr + 9);
+    do{
+       int sum=0;
+       for(int i=0;i<7;i++) sum +=arr[i];
+       if(sum==100)break;
+    }while(next_permutation(arr,arr+9));
+    for(int i=0;i<7;i++) cout << arr[i] << "\n";
     return 0;
 }
