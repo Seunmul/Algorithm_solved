@@ -7,15 +7,15 @@ int main()
     cout.tie(NULL);
     string s;
     getline(cin, s);
-    for (unsigned int i = 0; i < s.size(); i++)
+    for (char c:s)
     {
-        if (isdigit(s[i]) || s[i] == 32)
+        if (isdigit(c) || c == 32)
         {
-            cout << s[i] << "";
+            cout << c << "";
             continue;
         }
         char tmp;
-        (s[i] > 77 && s[i] <= 90) || (s[i] > 109 && s[i] <= 122) ? tmp = (char)(s[i] - 13) : tmp = (char)(s[i] + 13);
+        (c > 77 && c <= 90) || (c > 109 && c <= 122) ? tmp = (c - 13) : tmp = (c + 13);
         cout << tmp << "";
     }
     return 0;
